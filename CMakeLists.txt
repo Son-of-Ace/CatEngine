@@ -1,16 +1,21 @@
 cmake_minimum_required(VERSION 4.2)
-project(BrawlEngine)
+project(HeavenEngine)
 
 set(CMAKE_CXX_STANDARD 26)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
-find_package(GLEW REQUIRED)
 
-add_executable(BrawlEngine src/main.cpp)
+add_executable(HeavenEngine
+        src/main.cpp
+        external/glad/src/glad.c
+)
 
-target_link_libraries(BrawlEngine
+target_include_directories(HeavenEngine PRIVATE
+        external/glad/include
+)
+
+target_link_libraries(HeavenEngine
         OpenGL::GL
         glfw
-        GLEW::GLEW
 )
