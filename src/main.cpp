@@ -30,24 +30,27 @@ int main() {
     std::string vertexSource = LoadShader("../shaders/vertex.glsl");
     std::string fragSource = LoadShader("../shaders/frag.glsl");
 
+    const char *vertexShaderSource = vertexSource.c_str();
+    const char *fragShaderSource = fragSource.c_str();
+
+    unsigned int VBO;
+    unsigned int VAO;
+
     // Vertex Shader
     unsigned int vertexShader;
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
-    const char *vertexShaderSource = vertexSource.c_str();
-    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-    glCompileShader(vertexShader);
-
-    // Fragment Shader
     unsigned int fragmentShader;
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    const char *fragShaderSource = fragSource.c_str();
-    glShaderSource(fragmentShader, 1, &fragShaderSource, nullptr);
-    glCompileShader(fragmentShader);
-
     unsigned int shaderProgram;
     shaderProgram = glCreateProgram();
+
+    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
+    glCompileShader(vertexShader);
+
+    glShaderSource(fragmentShader, 1, &fragShaderSource, nullptr);
+    glCompileShader(fragmentShader);
 
     glAttachShader(shaderProgram, vertexShader);
     glAttachShader(shaderProgram, fragmentShader);
@@ -57,9 +60,6 @@ int main() {
     glDeleteShader(fragmentShader);
 
     // Buffers
-    unsigned int VBO;
-    unsigned int VAO;
-
     glGenBuffers(1, &VBO);
     glGenVertexArrays(1, &VAO);
 
