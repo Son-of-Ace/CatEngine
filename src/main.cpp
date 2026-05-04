@@ -24,6 +24,6 @@ int main() {
         glfwPollEvents();
     }
 
-    glfwTerminate();
+    glfwTerminate()x;
     return 0;
 }
