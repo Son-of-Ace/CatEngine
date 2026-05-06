@@ -6,6 +6,8 @@
 #include "Application.hpp"
 #include "../Rendering/Renderer/Renderer.hpp"
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) { glViewport(0, 0, width, height); }
+
 void Application::Run() {
   GLFWwindow* window;
 
@@ -25,7 +27,7 @@ void Application::Run() {
     return;
   }
 
-  glViewport(0, 0, 2560, 1440);
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
   Renderer renderer;
   renderer.Init();

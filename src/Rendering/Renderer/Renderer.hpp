@@ -1,8 +1,10 @@
 #pragma once
 
-#include "../Shader/Shader.hpp"
-
 #include <optional>
+#include <string>
+#include <vector>
+
+#include "../Shader/Shader.hpp"
 
 class Renderer {
  public:
@@ -11,6 +13,10 @@ class Renderer {
 
  private:
   std::optional<Shader> shader;
+
+  // Animation
+  std::vector<std::string> images;
+  std::vector<unsigned int> textures;
 
   // GPU Buffers
   unsigned int VBO = 0;

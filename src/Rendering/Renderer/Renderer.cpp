@@ -1,12 +1,14 @@
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include <string>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 #include "Renderer.hpp"
+#include "../../Utils/FileUtils.hpp"
 
 void Renderer::Init() {
-  stbi_set_flip_vertically_on_load(true);
-  data = stbi_load("../textures/funnycat.png", &width, &height, &nrChannels, 0);
+  images = GetAnimationFrames("../textures/Animations/FunnyCat");
 
   shader.emplace("../shaders/vertex.glsl", "../shaders/fragment.glsl");
   shader->Use();
@@ -53,21 +55,29 @@ void Renderer::Init() {
   glEnableVertexAttribArray(2);
 
   // Texture Calls
-  glGenTextures(1, &texture);
-  glBindTexture(GL_TEXTURE_2D, texture);
+  for (const std::string& imagePath : images) {
+    stbi_set_flip_vertically_on_load(true);
+    data = stbi_load(imagePath.c_str(), &width, &height, &nrChannels, 0);
+
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    const GLenum format = (nrChannels == 4) ? GL_RGBA : GL_RGB;
+
+    glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    stbi_image_free(data);
+
+    textures.push_back(texture);
+  }
 
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-  const GLenum format = (nrChannels == 4) ? GL_RGBA : GL_RGB;
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-  glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-
-  glGenerateMipmap(GL_TEXTURE_2D);
-
-  stbi_image_free(data);
 
   glClearColor(r, g, b, 1.0f);
 }
@@ -75,8 +85,13 @@ void Renderer::Init() {
 void Renderer::Render() {
   shader->Use();
 
+  float time = glfwGetTime();
+  float fps = 10.0f;
+
+  int frame = static_cast<int>(time * fps) % textures.size();
+
   glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, texture);
+  glBindTexture(GL_TEXTURE_2D, textures[frame]);
 
   glBindVertexArray(VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
