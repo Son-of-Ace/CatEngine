@@ -1,3 +1,0 @@
-/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir
-/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/edit_cache.dir
-/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/rebuild_cache.dir

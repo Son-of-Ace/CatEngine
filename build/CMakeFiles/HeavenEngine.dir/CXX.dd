@@ -1,9 +1,0 @@
-ninja_dyndep_version = 1.0
-build CMakeFiles/HeavenEngine.dir/src/main.cpp.o: dyndep
-
-build CMakeFiles/HeavenEngine.dir/src/Application/Application.cpp.o: dyndep
-
-build CMakeFiles/HeavenEngine.dir/src/Rendering/Renderer/Renderer.cpp.o: dyndep
-
-build CMakeFiles/HeavenEngine.dir/src/Rendering/Shader/Shader.cpp.o: dyndep
-
