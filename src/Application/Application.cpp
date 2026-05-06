@@ -6,43 +6,41 @@
 #include "Application.hpp"
 #include "../Rendering/Renderer/Renderer.hpp"
 
-#include <ostream>
-
 void Application::Run() {
-    GLFWwindow *window;
+  GLFWwindow* window;
 
-    if (!glfwInit()) {
-        return;
-    }
+  if (!glfwInit()) {
+    return;
+  }
 
-    window = glfwCreateWindow(2560, 1440, "Hello, World", nullptr, nullptr);
-    if (!window) {
-        glfwTerminate();
-        return;
-    }
-
-    glfwMakeContextCurrent(window);
-
-    if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress))) {
-        return;
-    }
-
-    glViewport(0, 0, 2560, 1440);
-
-    Renderer renderer;
-    renderer.Init();
-
-    std::print("Hello6{}", " ");
-
-    // Render loop
-    while (!glfwWindowShouldClose(window)) {
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        renderer.Render();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
-
+  window = glfwCreateWindow(2560, 1440, "Hello, World", nullptr, nullptr);
+  if (!window) {
     glfwTerminate();
+    return;
+  }
+
+  glfwMakeContextCurrent(window);
+
+  if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(glfwGetProcAddress))) {
+    return;
+  }
+
+  glViewport(0, 0, 2560, 1440);
+
+  Renderer renderer;
+  renderer.Init();
+
+  std::print("Hello6{}", " ");
+
+  // Render loop
+  while (!glfwWindowShouldClose(window)) {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    renderer.Render();
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+  }
+
+  glfwTerminate();
 }
