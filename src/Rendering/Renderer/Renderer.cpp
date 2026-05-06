@@ -86,7 +86,7 @@ void Renderer::Render() {
   shader->Use();
 
   float time = glfwGetTime();
-  float fps = 10.0f;
+  float fps = 24.0f;
 
   int frame = static_cast<int>(time * fps) % textures.size();
 
