@@ -1,8 +1,13 @@
-//
-// Created by luka on 05.05.2026.
-//
+#pragma once
 
-#ifndef HEAVENENGINE_SHADER_HPP
-#define HEAVENENGINE_SHADER_HPP
+#include <string>
 
-#endif //HEAVENENGINE_SHADER_HPP
+class Shader {
+public:
+    unsigned int vertexShader, fragmentShader, shaderProgram;
+
+    Shader(const std::string &vertexPath, const std::string &fragmentPath);
+    ~Shader();
+
+    void Use();
+};

@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/luka/Coding/Projects/CPP/HeavenEngine/build",
+  "command": "/usr/bin/g++ -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/include -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/stb -g -std=gnu++26 -fmodules-ts -fmodule-mapper=CMakeFiles/HeavenEngine.dir/src/main.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/HeavenEngine.dir/src/main.cpp.o -c /home/luka/Coding/Projects/CPP/HeavenEngine/src/main.cpp",
+  "file": "/home/luka/Coding/Projects/CPP/HeavenEngine/src/main.cpp",
+  "output": "/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/luka/Coding/Projects/CPP/HeavenEngine/build",
+  "command": "/usr/bin/g++ -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/include -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/stb -g -std=gnu++26 -fmodules-ts -fmodule-mapper=CMakeFiles/HeavenEngine.dir/src/Application/Application.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/HeavenEngine.dir/src/Application/Application.cpp.o -c /home/luka/Coding/Projects/CPP/HeavenEngine/src/Application/Application.cpp",
+  "file": "/home/luka/Coding/Projects/CPP/HeavenEngine/src/Application/Application.cpp",
+  "output": "/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir/src/Application/Application.cpp.o"
+},
+{
+  "directory": "/home/luka/Coding/Projects/CPP/HeavenEngine/build",
+  "command": "/usr/bin/g++ -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/include -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/stb -g -std=gnu++26 -fmodules-ts -fmodule-mapper=CMakeFiles/HeavenEngine.dir/src/Rendering/Renderer/Renderer.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/HeavenEngine.dir/src/Rendering/Renderer/Renderer.cpp.o -c /home/luka/Coding/Projects/CPP/HeavenEngine/src/Rendering/Renderer/Renderer.cpp",
+  "file": "/home/luka/Coding/Projects/CPP/HeavenEngine/src/Rendering/Renderer/Renderer.cpp",
+  "output": "/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir/src/Rendering/Renderer/Renderer.cpp.o"
+},
+{
+  "directory": "/home/luka/Coding/Projects/CPP/HeavenEngine/build",
+  "command": "/usr/bin/g++ -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/include -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/stb -g -std=gnu++26 -fmodules-ts -fmodule-mapper=CMakeFiles/HeavenEngine.dir/src/Rendering/Shader/Shader.cpp.o.modmap -MD -fdeps-format=p1689r5 -x c++ -o CMakeFiles/HeavenEngine.dir/src/Rendering/Shader/Shader.cpp.o -c /home/luka/Coding/Projects/CPP/HeavenEngine/src/Rendering/Shader/Shader.cpp",
+  "file": "/home/luka/Coding/Projects/CPP/HeavenEngine/src/Rendering/Shader/Shader.cpp",
+  "output": "/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir/src/Rendering/Shader/Shader.cpp.o"
+},
+{
+  "directory": "/home/luka/Coding/Projects/CPP/HeavenEngine/build",
+  "command": "/usr/bin/gcc -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/include -I/home/luka/Coding/Projects/CPP/HeavenEngine/external/stb -g -o CMakeFiles/HeavenEngine.dir/external/glad/src/glad.c.o -c /home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/src/glad.c",
+  "file": "/home/luka/Coding/Projects/CPP/HeavenEngine/external/glad/src/glad.c",
+  "output": "/home/luka/Coding/Projects/CPP/HeavenEngine/build/CMakeFiles/HeavenEngine.dir/external/glad/src/glad.c.o"
+}
+]

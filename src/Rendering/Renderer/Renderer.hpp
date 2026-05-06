@@ -1,6 +1,8 @@
 #pragma once
 
-#include <string>
+#include "../Shader/Shader.hpp"
+
+#include <optional>
 
 class Renderer {
 public:
@@ -8,19 +10,12 @@ public:
     void Render();
 
 private:
+    std::optional<Shader> shader;
+
     // GPU Buffers
     unsigned int VBO = 0;
     unsigned int EBO = 0;
     unsigned int VAO = 0;
-
-    // Shaders
-    unsigned int vertexShader = 0;
-    unsigned int fragmentShader = 0;
-    unsigned int shaderProgram = 0;
-
-    // Shader Sources
-    std::string vertexSource;
-    std::string fragSource;
 
     // Textures
     int width = 0, height = 0, nrChannels = 0;

@@ -2,51 +2,30 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-#include "../Utils/ShaderUtils.hpp"
 #include "Renderer.hpp"
 
 void Renderer::Init() {
-    vertexSource = LoadShader("../shaders/vertex.glsl");
-    fragSource = LoadShader("../shaders/frag.glsl");
-
-    const char *vertexShaderSource = vertexSource.c_str();
-    const char *fragmentShaderSource = fragSource.c_str();
-
-    vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
     stbi_set_flip_vertically_on_load(true);
     data = stbi_load("../textures/funnycat.png", &width, &height, &nrChannels, 0);
 
+    shader.emplace("../shaders/vertex.glsl", "../shaders/fragment.glsl");
+    shader->Use();
+
     // clang-format off
     // Square
-    float vertices[] = {
+    constexpr float vertices[] = {
         // Positions            // Colors              // UV
-        -0.5f, -0.5f, 0.0f,     1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
-         0.5f, -0.5f, 0.0f,     0.0f, 1.0f, 0.0f,      1.0f, 0.0f,
-         0.5f, 0.5f, 0.0f,      0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
-        -0.5f, 0.5f, 0.0f,      1.0f, 1.0f, 0.0f,      0.0f, 1.0f,
+        -1.0f, -1.0f, 0.0f,     1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,     0.0f, 1.0f, 0.0f,      1.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,     0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
+        -1.0f,  1.0f, 0.0f,     1.0f, 1.0f, 0.0f,      0.0f, 1.0f,
     };
 
-    unsigned int indices[] = {
+    const unsigned int indices[] = {
         0, 1, 2,
         2, 3, 0
     };
     // clang-format on
-
-    glShaderSource(vertexShader, 1, &vertexShaderSource, nullptr);
-    glCompileShader(vertexShader);
-
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, nullptr);
-    glCompileShader(fragmentShader);
-
-    shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
 
     // Buffers
     glGenBuffers(1, &VBO);
@@ -96,7 +75,7 @@ void Renderer::Init() {
 }
 
 void Renderer::Render() {
-    glUseProgram(shaderProgram);
+    shader->Use();
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);

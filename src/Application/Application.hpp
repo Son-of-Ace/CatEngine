@@ -1,8 +1,6 @@
-//
-// Created by luka on 05.05.2026.
-//
+#pragma once
 
-#ifndef HEAVENENGINE_APPLICATION_HPP
-#define HEAVENENGINE_APPLICATION_HPP
-
-#endif //HEAVENENGINE_APPLICATION_HPP
+class Application {
+public:
+    void Run();
+};
