@@ -1,0 +1,8 @@
+//
+// Created by luka on 05.05.2026.
+//
+
+#ifndef HEAVENENGINE_SHADER_HPP
+#define HEAVENENGINE_SHADER_HPP
+
+#endif //HEAVENENGINE_SHADER_HPP
