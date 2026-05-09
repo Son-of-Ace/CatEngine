@@ -8,7 +8,7 @@ namespace fs = std::filesystem;
 static std::vector<std::string> GetAnimationFrames(const std::string& animationPath) {
   std::vector<std::string> output;
 
-  for (const auto& entry : fs::directory_iterator(animationPath)) {
+  for (const fs::directory_entry& entry : fs::directory_iterator(animationPath)) {
     if (entry.path().extension() == ".png") {
       output.push_back(entry.path().string());
     }

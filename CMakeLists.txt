@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.2)
-project(HeavenEngine)
+project(CatEngine)
 
 set(CMAKE_CXX_STANDARD 26)
 
@@ -9,7 +9,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 
-add_executable(HeavenEngine
+add_executable(CatEngine
         src/main.cpp
         src/Application/Application.cpp
         src/Rendering/Renderer/Renderer.cpp
@@ -17,12 +17,12 @@ add_executable(HeavenEngine
         external/glad/src/glad.c
 )
 
-target_include_directories(HeavenEngine PRIVATE
+target_include_directories(CatEngine PRIVATE
         external/glad/include
         external/stb
 )
 
-target_link_libraries(HeavenEngine
+target_link_libraries(CatEngine
         OpenGL::GL
         glfw
 )

@@ -1,11 +1,12 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <print>
 #include <string>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 #include "Renderer.hpp"
-#include "../../Utils/FileUtils.hpp"
+#include "../../Utils/AnimationUtils.hpp"
 
 void Renderer::Init() {
   images = GetAnimationFrames("../textures/Animations/FunnyCat");
@@ -86,9 +87,12 @@ void Renderer::Render() {
   shader->Use();
 
   float time = glfwGetTime();
-  float fps = 24.0f;
+  std::print("Time: {}", time);
+
+  float fps = 30.0f;
 
   int frame = static_cast<int>(time * fps) % textures.size();
+  std::print("Frame: {}", frame);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, textures[frame]);
