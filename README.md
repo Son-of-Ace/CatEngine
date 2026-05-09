@@ -1,1 +1,1 @@
-# HeavenEngine is a custom 2D rendering engine made in C++
+# CatEngine is a project made for fun that display a gif of a cat on the screen and it keeps playing!
