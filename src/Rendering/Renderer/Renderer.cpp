@@ -9,7 +9,7 @@
 #include "../../Utils/AnimationUtils.hpp"
 
 void Renderer::Init() {
-  images = GetAnimationFrames("../textures/Animations/FunnyCat");
+  images = GetAnimationFrames("../textures/Animations/ShrekMovie");
 
   shader.emplace("../shaders/vertex.glsl", "../shaders/fragment.glsl");
   shader->Use();
@@ -89,7 +89,7 @@ void Renderer::Render() {
   float time = glfwGetTime();
   std::print("Time: {}", time);
 
-  float fps = 30.0f;
+  float fps = 24.0f;
 
   int frame = static_cast<int>(time * fps) % textures.size();
   std::print("Frame: {}", frame);
