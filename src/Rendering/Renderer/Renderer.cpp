@@ -9,7 +9,7 @@
 #include "../../Utils/AnimationUtils.hpp"
 
 void Renderer::Init() {
-  images = GetAnimationFrames("../textures/Animations/ShrekMovie");
+  images = GetAnimationFrames("../textures/Animations/FunnyCat");
 
   shader.emplace("../shaders/vertex.glsl", "../shaders/fragment.glsl");
   shader->Use();
